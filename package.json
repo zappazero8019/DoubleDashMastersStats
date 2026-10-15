@@ -1,0 +1,38 @@
+{
+  "name": "double-dash-masters-stats",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Painel público de estatísticas do canal Double Dash Masters (Mario Kart: Double Dash!!).",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint .",
+    "dados:exportar": "node tools/exportar-api.mjs",
+    "dados:atualizar": "node tools/atualizar-dados.mjs",
+    "dados:testes": "node --test tools/exportar-api.test.mjs tools/atualizar-dados.test.mjs tools/preparar-publicacao.test.mjs tools/gerador-dados.test.mjs tools/campeonato.test.mjs",
+    "site:preparar": "node tools/preparar-publicacao.mjs"
+  },
+  "dependencies": {
+    "lucide-react": "^0.462.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.28.0",
+    "recharts": "^2.13.3"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.15.0",
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "@vitejs/plugin-react": "^4.3.4",
+    "eslint": "^9.15.0",
+    "eslint-plugin-react-hooks": "^5.0.0",
+    "eslint-plugin-react-refresh": "^0.4.14",
+    "globals": "^15.12.0",
+    "typescript": "~5.6.3",
+    "typescript-eslint": "^8.16.0",
+    "vite": "^5.4.11"
+  }
+}

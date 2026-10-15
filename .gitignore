@@ -1,0 +1,64 @@
+# ---------------------------------------------------------------------------
+# Double Dash Masters — Painel de Estatísticas
+# Regras de exclusão para Node/Vite, Windows, ambientes e artefatos locais.
+# Credenciais NUNCA devem ser versionadas.
+# ---------------------------------------------------------------------------
+
+# Build / saída
+dist
+dist-ssr
+build
+*.tsbuildinfo
+
+# Dependências
+node_modules
+.pnpm-store
+
+# Netlify local (estado do CLI, não versionar)
+.netlify
+
+# Vite / caches
+.vite
+.cache
+.eslintcache
+
+# Cobertura de testes
+coverage
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+logs
+
+# Ambiente e credenciais (nunca versionar segredos)
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+*.cer
+*.crt
+credentials.json
+service-account*.json
+.supabase
+
+# Saída do gerador de dados (só é versionada/publicada após aprovação)
+tools/saida
+
+# dados.json gerado localmente para testes — NÃO versionar/publicar ainda
+public/dados.json
+
+# Editor / SO
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/

@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Double Dash Masters">
+  <rect width="64" height="64" rx="14" fill="#0b1220" stroke="#22314f" stroke-width="2"/>
+  <g transform="rotate(20 32 32)">
+    <rect x="20" y="12" width="9.5" height="40" rx="4.75" fill="#38a9ff"/>
+    <rect x="34.5" y="12" width="9.5" height="40" rx="4.75" fill="#3bf58d"/>
+  </g>
+</svg>

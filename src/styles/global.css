@@ -1,0 +1,885 @@
+/* ==========================================================================
+   Estilos globais — Double Dash Masters
+   ========================================================================== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(1200px 600px at 85% -10%, rgba(56, 169, 255, 0.08), transparent 60%),
+    radial-gradient(900px 500px at -10% 0%, rgba(59, 245, 141, 0.07), transparent 55%),
+    var(--bg);
+  color: var(--texto);
+  font-family: var(--fonte);
+  font-size: 15px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  margin: 0;
+  font-family: var(--fonte-display);
+  line-height: 1.2;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+}
+
+:focus-visible {
+  outline: 2px solid var(--neon);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+.visualmente-oculto {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ---------------------------------------------------------------- Layout */
+
+.app {
+  display: grid;
+  grid-template-columns: var(--largura-sidebar) 1fr;
+  min-height: 100vh;
+}
+
+/* Sidebar ----------------------------------------------------------- */
+
+.sidebar {
+  position: sticky;
+  top: 0;
+  align-self: start;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding: 20px 16px;
+  background: linear-gradient(180deg, var(--surface) 0%, var(--bg-elev) 100%);
+  border-right: 1px solid var(--border);
+}
+
+.marca {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 6px 6px 14px;
+}
+
+.marca__logo {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  color: #04140b;
+  background: linear-gradient(140deg, var(--neon) 0%, var(--eletrico) 130%);
+  box-shadow: var(--glow-neon);
+}
+
+.marca__titulo {
+  font-size: 17px;
+  font-weight: 800;
+  letter-spacing: 0.2px;
+}
+
+.marca__subtitulo {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--texto-fraco);
+}
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  overflow-y: auto;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  border-radius: var(--raio-sm);
+  border: 1px solid transparent;
+  color: var(--texto-dim);
+  font-weight: 600;
+  transition: background var(--transicao), color var(--transicao), border-color var(--transicao);
+}
+
+.nav-item:hover {
+  background: var(--surface-2);
+  color: var(--texto);
+}
+
+.nav-item--ativo {
+  color: var(--texto);
+  background: linear-gradient(90deg, var(--neon-fraco), transparent);
+  border-color: rgba(59, 245, 141, 0.35);
+}
+
+.nav-item--ativo svg {
+  color: var(--neon);
+}
+
+.nav-item svg {
+  flex-shrink: 0;
+  color: var(--texto-fraco);
+}
+
+.sidebar__rodape {
+  margin-top: auto;
+  padding: 12px;
+  font-size: 11px;
+  color: var(--texto-fraco);
+  border-top: 1px solid var(--border);
+}
+
+/* Conteúdo ---------------------------------------------------------- */
+
+.principal {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 22px;
+  background: rgba(8, 13, 24, 0.86);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border);
+}
+
+.topbar__titulo {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--texto-dim);
+}
+
+.topbar__acoes {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.carimbo-atualizacao {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: var(--texto-fraco);
+  font-variant-numeric: tabular-nums;
+}
+
+.conteudo {
+  padding: 26px 22px 60px;
+  max-width: 1240px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.botao-menu {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border: 1px solid var(--border);
+  border-radius: var(--raio-sm);
+  background: var(--surface-2);
+  cursor: pointer;
+}
+
+/* Seletor de idioma ------------------------------------------------- */
+
+.seletor-idioma {
+  display: inline-flex;
+  padding: 3px;
+  gap: 3px;
+  border: 1px solid var(--border);
+  border-radius: var(--raio-pill);
+  background: var(--surface-2);
+}
+
+.seletor-idioma button {
+  border: 0;
+  background: transparent;
+  color: var(--texto-fraco);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  padding: 5px 11px;
+  border-radius: var(--raio-pill);
+  cursor: pointer;
+  transition: background var(--transicao), color var(--transicao);
+}
+
+.seletor-idioma button[aria-pressed='true'] {
+  background: var(--neon);
+  color: #04140b;
+}
+
+/* ------------------------------------------------------------ Cabeçalho */
+
+.cabecalho-pagina {
+  margin-bottom: 22px;
+}
+
+.cabecalho-pagina__kicker {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--neon);
+}
+
+.cabecalho-pagina__titulo {
+  font-size: 26px;
+  font-weight: 800;
+}
+
+.cabecalho-pagina__subtitulo {
+  margin-top: 4px;
+  color: var(--texto-dim);
+}
+
+/* ------------------------------------------------------------ Cartões */
+
+.card {
+  border: 1px solid var(--border);
+  border-radius: var(--raio);
+  background: linear-gradient(180deg, var(--surface) 0%, var(--bg-elev) 100%);
+  box-shadow: var(--sombra-card);
+  overflow: hidden;
+}
+
+.card__topo {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 14px 18px;
+  border-bottom: 1px solid var(--border);
+}
+
+.card__titulo {
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--texto-dim);
+}
+
+.card__corpo {
+  padding: 18px;
+}
+
+.card__descricao {
+  margin-top: 3px;
+  font-size: 12.5px;
+  color: var(--texto-fraco);
+}
+
+/* ------------------------------------------------------ KPI / indicadores */
+
+.kpi-grid {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  margin-bottom: 22px;
+}
+
+.kpi {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px;
+  border: 1px solid var(--border);
+  border-radius: var(--raio);
+  background: var(--surface);
+}
+
+.kpi__icone {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  border-radius: 11px;
+  border: 1px solid var(--border-forte);
+  background: var(--surface-2);
+  color: var(--eletrico);
+}
+
+.kpi--neon .kpi__icone {
+  color: var(--neon);
+  border-color: rgba(59, 245, 141, 0.3);
+  background: var(--neon-fraco);
+}
+
+.kpi--eletrico .kpi__icone {
+  color: var(--eletrico);
+  border-color: rgba(56, 169, 255, 0.3);
+  background: var(--eletrico-fraco);
+}
+
+.kpi__rotulo {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--texto-fraco);
+}
+
+.kpi__valor {
+  font-size: 24px;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+}
+
+.kpi__dica {
+  font-size: 11.5px;
+  color: var(--texto-fraco);
+  margin-top: 2px;
+}
+
+/* ------------------------------------------------------------ Grades */
+
+.grade {
+  display: grid;
+  gap: 16px;
+}
+
+.grade--2 {
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+}
+
+.grade--cartoes {
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+}
+
+.pilha {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.linha {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.espaco-entre {
+  justify-content: space-between;
+}
+
+/* ------------------------------------------------------------ Tabelas */
+
+.tabela-scroll {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.tabela {
+  width: 100%;
+  border-collapse: collapse;
+  font-variant-numeric: tabular-nums;
+}
+
+.tabela th {
+  padding: 10px 14px;
+  text-align: left;
+  font-size: 11.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--texto-fraco);
+  border-bottom: 1px solid var(--border-forte);
+  white-space: nowrap;
+}
+
+.tabela td {
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--border);
+  white-space: nowrap;
+}
+
+.tabela tbody tr:hover {
+  background: rgba(56, 169, 255, 0.05);
+}
+
+.tabela .num {
+  text-align: right;
+}
+
+.tabela .destaque {
+  color: var(--neon);
+  font-weight: 700;
+}
+
+.tabela .celula-jogador {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.campeonato-lider td {
+  background: linear-gradient(90deg, var(--neon-fraco), transparent 60%);
+}
+
+/* ------------------------------------------------------------ Badges/chips */
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 3px 9px;
+  border-radius: var(--raio-pill);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border: 1px solid var(--border-forte);
+  color: var(--texto-dim);
+  background: var(--surface-2);
+}
+
+.badge--neon {
+  color: var(--neon);
+  border-color: rgba(59, 245, 141, 0.35);
+  background: var(--neon-fraco);
+}
+
+.badge--eletrico {
+  color: var(--eletrico);
+  border-color: rgba(56, 169, 255, 0.35);
+  background: var(--eletrico-fraco);
+}
+
+.badge--mudo {
+  color: var(--texto-fraco);
+}
+
+.posicao {
+  display: inline-grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  font-weight: 800;
+  font-size: 12px;
+  border: 1px solid var(--border-forte);
+  background: var(--surface-2);
+  color: var(--texto-dim);
+}
+
+.posicao--1 {
+  color: #04140b;
+  background: var(--neon);
+  border-color: var(--neon);
+}
+
+.posicao--2 {
+  color: #04140b;
+  background: var(--eletrico);
+  border-color: var(--eletrico);
+}
+
+.posicao--3 {
+  color: var(--texto);
+  background: var(--surface-3);
+}
+
+/* ------------------------------------------------------------ Formulários */
+
+.campo {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.campo__rotulo {
+  font-size: 11.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--texto-fraco);
+}
+
+.entrada,
+.select {
+  appearance: none;
+  padding: 9px 12px;
+  border-radius: var(--raio-sm);
+  border: 1px solid var(--border-forte);
+  background: var(--surface-2);
+  color: var(--texto);
+  font: inherit;
+  min-width: 0;
+}
+
+.entrada::placeholder {
+  color: var(--texto-fraco);
+}
+
+.entrada:focus,
+.select:focus {
+  border-color: var(--neon);
+}
+
+.barra-filtros {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: flex-end;
+  margin-bottom: 16px;
+}
+
+.barra-filtros .campo {
+  min-width: 160px;
+}
+
+/* ------------------------------------------------------------ Botões/links */
+
+.botao {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 9px 15px;
+  border-radius: var(--raio-sm);
+  border: 1px solid var(--border-forte);
+  background: var(--surface-2);
+  color: var(--texto);
+  font-weight: 700;
+  cursor: pointer;
+  transition: background var(--transicao), border-color var(--transicao), transform var(--transicao);
+}
+
+.botao:hover {
+  background: var(--surface-3);
+  border-color: var(--neon);
+}
+
+.botao--neon {
+  border-color: transparent;
+  background: var(--neon);
+  color: #04140b;
+}
+
+.botao--neon:hover {
+  background: var(--neon-forte);
+}
+
+.botao--sutil {
+  border-color: transparent;
+  background: transparent;
+  color: var(--texto-dim);
+}
+
+.botao--sutil:hover {
+  background: var(--surface-2);
+  border-color: transparent;
+}
+
+.link {
+  color: var(--eletrico);
+  font-weight: 600;
+}
+
+.link:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* ------------------------------------------------------------ Estados */
+
+.estado {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 44px 22px;
+  text-align: center;
+  border: 1px dashed var(--border-forte);
+  border-radius: var(--raio);
+  background: rgba(13, 20, 36, 0.4);
+}
+
+.estado__icone {
+  display: grid;
+  place-items: center;
+  width: 54px;
+  height: 54px;
+  border-radius: 14px;
+  border: 1px solid var(--border-forte);
+  background: var(--surface-2);
+  color: var(--texto-fraco);
+}
+
+.estado--erro .estado__icone {
+  color: var(--perigo);
+  border-color: rgba(255, 84, 112, 0.35);
+  background: var(--perigo-fraco);
+}
+
+.estado__titulo {
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.estado__texto {
+  max-width: 560px;
+  color: var(--texto-dim);
+}
+
+/* Esqueleto de carregamento */
+
+.esqueleto {
+  border-radius: var(--raio-sm);
+  background: linear-gradient(90deg, var(--surface-2) 25%, var(--surface-3) 50%, var(--surface-2) 75%);
+  background-size: 200% 100%;
+  animation: esqueleto 1.3s ease-in-out infinite;
+}
+
+@keyframes esqueleto {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+.lista-esqueleto {
+  display: grid;
+  gap: 12px;
+}
+
+/* ------------------------------------------------------------ Aviso */
+
+.aviso {
+  display: flex;
+  gap: 10px;
+  padding: 12px 14px;
+  border-radius: var(--raio);
+  border: 1px solid var(--border-forte);
+  background: var(--surface-2);
+  color: var(--texto-dim);
+  font-size: 13px;
+}
+
+.aviso__icone {
+  flex-shrink: 0;
+  color: var(--eletrico);
+  margin-top: 1px;
+}
+
+.aviso--regra .aviso__icone {
+  color: var(--neon);
+}
+
+.aviso__titulo {
+  font-weight: 700;
+  color: var(--texto);
+  display: block;
+  margin-bottom: 2px;
+}
+
+/* ------------------------------------------------------------ Gráficos */
+
+.grafico {
+  width: 100%;
+  height: 320px;
+}
+
+.grafico-alternativa {
+  margin-top: 12px;
+}
+
+.legenda-grafico {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 10px;
+  font-size: 12px;
+  color: var(--texto-dim);
+}
+
+.legenda-grafico span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.legenda-grafico i {
+  width: 10px;
+  height: 10px;
+  border-radius: 3px;
+  display: inline-block;
+}
+
+/* ------------------------------------------------------------ Cards de lista */
+
+.card-jogador {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px;
+  border: 1px solid var(--border);
+  border-radius: var(--raio);
+  background: var(--surface);
+  transition: border-color var(--transicao), transform var(--transicao);
+}
+
+.card-jogador:hover {
+  border-color: var(--eletrico);
+  transform: translateY(-2px);
+}
+
+.avatar {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  font-weight: 800;
+  color: #04140b;
+  background: linear-gradient(140deg, var(--neon), var(--eletrico));
+}
+
+.card-jogador__nome {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.card-jogador__meta {
+  font-size: 12.5px;
+  color: var(--texto-fraco);
+}
+
+.card-live__topo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.card-live__vencedor {
+  color: var(--neon);
+  font-weight: 700;
+}
+
+/* ------------------------------------------------------------ Rodapé */
+
+.rodape {
+  padding: 18px 22px 40px;
+  max-width: 1240px;
+  margin: 0 auto;
+  color: var(--texto-fraco);
+  font-size: 12px;
+  border-top: 1px solid var(--border);
+}
+
+/* ------------------------------------------------------------ Drawer mobile */
+
+.overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  background: rgba(2, 4, 9, 0.6);
+}
+
+/* ------------------------------------------------------------ Responsivo */
+
+@media (max-width: 900px) {
+  .app {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar {
+    position: fixed;
+    z-index: 50;
+    top: 0;
+    left: 0;
+    width: min(82vw, 300px);
+    transform: translateX(-102%);
+    transition: transform 200ms ease;
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.6);
+  }
+
+  .app--menu-aberto .sidebar {
+    transform: translateX(0);
+  }
+
+  .app--menu-aberto .overlay {
+    display: block;
+  }
+
+  .botao-menu {
+    display: inline-flex;
+  }
+
+  .conteudo {
+    padding: 20px 16px 60px;
+  }
+
+  .cabecalho-pagina__titulo {
+    font-size: 22px;
+  }
+
+  .carimbo-atualizacao {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}

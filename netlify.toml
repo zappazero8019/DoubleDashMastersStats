@@ -1,0 +1,15 @@
+# Configuração de hospedagem do painel Double Dash Masters (SPA Vite/React).
+# Deploy NÃO foi executado. Serve apenas para preparar a futura publicação.
+
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "20"
+
+# Fallback de rotas SPA: qualquer caminho desconhecido serve o index.html.
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

@@ -1,0 +1,64 @@
+/* ==========================================================================
+   Tokens de tema — Double Dash Masters
+   Tema escuro gamer/esports: fundo quase preto, superfícies azul-escuras,
+   verde neon (principal) e azul elétrico (secundário).
+   ========================================================================== */
+
+:root {
+  /* Fundo e superfícies */
+  --bg: #05070c;
+  --bg-elev: #080d18;
+  --surface: #0d1424;
+  --surface-2: #121b2f;
+  --surface-3: #18233b;
+
+  /* Bordas */
+  --border: #1c2740;
+  --border-forte: #2b3c5e;
+
+  /* Texto */
+  --texto: #e8eefb;
+  --texto-dim: #a7b6d3;
+  --texto-fraco: #6c7d9e;
+
+  /* Destaques */
+  --neon: #3bf58d;
+  --neon-forte: #1fd66b;
+  --neon-fraco: rgba(59, 245, 141, 0.12);
+  --eletrico: #38a9ff;
+  --eletrico-forte: #1e8fe0;
+  --eletrico-fraco: rgba(56, 169, 255, 0.12);
+
+  /* Semânticos */
+  --perigo: #ff5470;
+  --perigo-fraco: rgba(255, 84, 112, 0.12);
+  --aviso: #ffc24b;
+
+  /* Efeitos */
+  --glow-neon: 0 0 0 1px rgba(59, 245, 141, 0.25), 0 0 18px -6px rgba(59, 245, 141, 0.45);
+  --glow-eletrico: 0 0 0 1px rgba(56, 169, 255, 0.25), 0 0 18px -6px rgba(56, 169, 255, 0.45);
+  --sombra-card: 0 10px 30px -18px rgba(0, 0, 0, 0.9);
+
+  /* Tipografia (fallback local — sem dependência de rede) */
+  --fonte: 'Inter', 'Segoe UI', system-ui, -apple-system, 'Helvetica Neue', Arial, sans-serif;
+  --fonte-display: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+
+  /* Métricas */
+  --raio: 14px;
+  --raio-sm: 9px;
+  --raio-pill: 999px;
+  --largura-sidebar: 250px;
+  --transicao: 160ms ease;
+}
+
+/* Paleta categórica para os gráficos (contraste sobre fundo escuro). */
+:root {
+  --grafico-1: #3bf58d;
+  --grafico-2: #38a9ff;
+  --grafico-3: #b585ff;
+  --grafico-4: #ffc24b;
+  --grafico-5: #ff7a9c;
+  --grafico-6: #4be0d0;
+  --grafico-7: #ff9f5a;
+  --grafico-8: #7c8dff;
+}
