@@ -1,0 +1,318 @@
+{
+  "schema": 1,
+  "gerado_em": "2026-10-13T20:04:01-03:00",
+  "fonte": "https://mkddtracker-api.netlify.app",
+  "atualizado_em": "2026-10-11T22:13:57+00:00",
+  "temporadas": [
+    2026
+  ],
+  "disponibilidade": {
+    "geral": "completo",
+    "lives": "completo",
+    "campeonato": "completo",
+    "jogadores": "completo",
+    "itens": "completo",
+    "relampagos": "completo",
+    "cascos_azuis": "completo"
+  },
+  "completude": {
+    "completo": true,
+    "recursos": {
+      "geral": {
+        "linhas": 1,
+        "truncado": false
+      },
+      "lives": {
+        "linhas": 1,
+        "truncado": false
+      },
+      "campeonato": {
+        "linhas": 1,
+        "truncado": false
+      },
+      "jogadores": {
+        "linhas": 4,
+        "truncado": false
+      },
+      "itens": {
+        "linhas": 6,
+        "truncado": false
+      },
+      "relampagos": {
+        "linhas": 3,
+        "truncado": false
+      },
+      "cascos_azuis": {
+        "linhas": 3,
+        "truncado": false
+      }
+    },
+    "verificacoes": [
+      {
+        "nome": "campos_esperados",
+        "ok": true,
+        "detalhe": ""
+      },
+      {
+        "nome": "sem_duplicidades",
+        "ok": true,
+        "detalhe": ""
+      },
+      {
+        "nome": "geral.lives_finalizadas == lives.length",
+        "ok": true,
+        "detalhe": "1 vs 1"
+      },
+      {
+        "nome": "geral.jogadores == jogadores distintos",
+        "ok": true,
+        "detalhe": "4 vs 4"
+      },
+      {
+        "nome": "Σ itens.total == geral.itens_totais",
+        "ok": true,
+        "detalhe": "48 vs 48"
+      },
+      {
+        "nome": "Σ relâmpagos == geral.relampagos",
+        "ok": true,
+        "detalhe": "11 vs 11"
+      },
+      {
+        "nome": "Σ cascos azuis == geral.cascos_azuis",
+        "ok": true,
+        "detalhe": "37 vs 37"
+      },
+      {
+        "nome": "Σ campeonato.vitorias == nº de lives",
+        "ok": true,
+        "detalhe": "1 vs 1"
+      },
+      {
+        "nome": "todo itens.sessao_id ∈ lives",
+        "ok": true,
+        "detalhe": "órfãos: 0"
+      },
+      {
+        "nome": "relampagos ⊆ itens",
+        "ok": true,
+        "detalhe": "fora: 0"
+      },
+      {
+        "nome": "cascos_azuis ⊆ itens",
+        "ok": true,
+        "detalhe": "fora: 0"
+      },
+      {
+        "nome": "nº relampagos == itens classe relampago",
+        "ok": true,
+        "detalhe": ""
+      },
+      {
+        "nome": "nº cascos_azuis == itens classe casco_azul",
+        "ok": true,
+        "detalhe": ""
+      },
+      {
+        "nome": "campeonato.player_id ∈ jogadores",
+        "ok": true,
+        "detalhe": "fora: 0"
+      }
+    ],
+    "avisos": []
+  },
+  "campos_indisponiveis": [
+    "tempos",
+    "colocacoes_por_live",
+    "pontuacao_por_live",
+    "participantes_por_live",
+    "baseline",
+    "eventos"
+  ],
+  "recursos": {
+    "geral": {
+      "lives_finalizadas": 1,
+      "lives_em_andamento": 1,
+      "jogadores": 4,
+      "itens_totais": 48,
+      "relampagos": 11,
+      "cascos_azuis": 37
+    },
+    "lives": [
+      {
+        "sessao_id": "e10d0f0d-738d-4174-befb-5839e14dd848",
+        "temporada": 2026,
+        "iniciada_em": "2026-10-11T20:56:22+00:00",
+        "finalizada_em": "2026-10-11T22:13:57+00:00",
+        "url_live": "",
+        "vencedor_player_id": 1,
+        "vencedor_nome": "André",
+        "vencedor_pontos": 10
+      }
+    ],
+    "campeonato": [
+      {
+        "temporada": 2026,
+        "player_id": 1,
+        "nome": "André",
+        "vitorias": 1
+      }
+    ],
+    "jogadores": [
+      {
+        "player_id": 1,
+        "nome": "André",
+        "lives_participadas": 1,
+        "pontos_totais_live": 10,
+        "melhor_live": 10
+      },
+      {
+        "player_id": 0,
+        "nome": "Daniel",
+        "lives_participadas": 1,
+        "pontos_totais_live": 9,
+        "melhor_live": 9
+      },
+      {
+        "player_id": 2,
+        "nome": "Samuel",
+        "lives_participadas": 1,
+        "pontos_totais_live": 7,
+        "melhor_live": 7
+      },
+      {
+        "player_id": 3,
+        "nome": "João Paulo",
+        "lives_participadas": 1,
+        "pontos_totais_live": -2,
+        "melhor_live": -2
+      }
+    ],
+    "itens": [
+      {
+        "sessao_id": "e10d0f0d-738d-4174-befb-5839e14dd848",
+        "temporada": 2026,
+        "player_id": 3,
+        "nome": "João Paulo",
+        "nome_item": "Casco Azul",
+        "classe": "casco_azul",
+        "total": 22,
+        "aquisicoes": 22
+      },
+      {
+        "sessao_id": "e10d0f0d-738d-4174-befb-5839e14dd848",
+        "temporada": 2026,
+        "player_id": 1,
+        "nome": "André",
+        "nome_item": "Casco Azul",
+        "classe": "casco_azul",
+        "total": 14,
+        "aquisicoes": 15
+      },
+      {
+        "sessao_id": "e10d0f0d-738d-4174-befb-5839e14dd848",
+        "temporada": 2026,
+        "player_id": 3,
+        "nome": "João Paulo",
+        "nome_item": "Raio",
+        "classe": "relampago",
+        "total": 7,
+        "aquisicoes": 8
+      },
+      {
+        "sessao_id": "e10d0f0d-738d-4174-befb-5839e14dd848",
+        "temporada": 2026,
+        "player_id": 2,
+        "nome": "Samuel",
+        "nome_item": "Raio",
+        "classe": "relampago",
+        "total": 3,
+        "aquisicoes": 3
+      },
+      {
+        "sessao_id": "e10d0f0d-738d-4174-befb-5839e14dd848",
+        "temporada": 2026,
+        "player_id": 2,
+        "nome": "Samuel",
+        "nome_item": "Casco Azul",
+        "classe": "casco_azul",
+        "total": 1,
+        "aquisicoes": 12
+      },
+      {
+        "sessao_id": "e10d0f0d-738d-4174-befb-5839e14dd848",
+        "temporada": 2026,
+        "player_id": 0,
+        "nome": "Daniel",
+        "nome_item": "Raio",
+        "classe": "relampago",
+        "total": 1,
+        "aquisicoes": 2
+      }
+    ],
+    "relampagos": [
+      {
+        "sessao_id": "e10d0f0d-738d-4174-befb-5839e14dd848",
+        "temporada": 2026,
+        "player_id": 3,
+        "nome": "João Paulo",
+        "nome_item": "Raio",
+        "classe": "relampago",
+        "total": 7,
+        "aquisicoes": 8
+      },
+      {
+        "sessao_id": "e10d0f0d-738d-4174-befb-5839e14dd848",
+        "temporada": 2026,
+        "player_id": 2,
+        "nome": "Samuel",
+        "nome_item": "Raio",
+        "classe": "relampago",
+        "total": 3,
+        "aquisicoes": 3
+      },
+      {
+        "sessao_id": "e10d0f0d-738d-4174-befb-5839e14dd848",
+        "temporada": 2026,
+        "player_id": 0,
+        "nome": "Daniel",
+        "nome_item": "Raio",
+        "classe": "relampago",
+        "total": 1,
+        "aquisicoes": 2
+      }
+    ],
+    "cascos_azuis": [
+      {
+        "sessao_id": "e10d0f0d-738d-4174-befb-5839e14dd848",
+        "temporada": 2026,
+        "player_id": 3,
+        "nome": "João Paulo",
+        "nome_item": "Casco Azul",
+        "classe": "casco_azul",
+        "total": 22,
+        "aquisicoes": 22
+      },
+      {
+        "sessao_id": "e10d0f0d-738d-4174-befb-5839e14dd848",
+        "temporada": 2026,
+        "player_id": 1,
+        "nome": "André",
+        "nome_item": "Casco Azul",
+        "classe": "casco_azul",
+        "total": 14,
+        "aquisicoes": 15
+      },
+      {
+        "sessao_id": "e10d0f0d-738d-4174-befb-5839e14dd848",
+        "temporada": 2026,
+        "player_id": 2,
+        "nome": "Samuel",
+        "nome_item": "Casco Azul",
+        "classe": "casco_azul",
+        "total": 1,
+        "aquisicoes": 12
+      }
+    ]
+  }
+}
